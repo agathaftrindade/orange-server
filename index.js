@@ -1,51 +1,26 @@
 const express = require('express')
 const bodyParser = require('body-parser')
-const request = require('request')
 
-const util = require('util')
-
-const provider = require('./provider.js')
+const controller = require('./controller.js')
 
 const app = express();
 app.use(bodyParser.json());
 
-const request_ = util.promisify(request)
 
-function annotate() {
-    const service_list = provider.get_addresses()
+app.get('/ping', (req, res) => {
+    res.send('pong');
+})
 
-    const requests = service_list.map(
-        (service) => {
-            const options = {
-                method: 'POST',
-                url: service.url,
-                headers: {
-                    Accept: 'application/json'
-                },
-                form: {
-                    text: 'O rato roeu a roupa do rei de Roma'
-                }
-            }
-            return request_(options)
-        }
-    )
+app.get('/slow_mock', (req, res) => {
+    setTimeout(_ => res.send('pong'), 5000)
+})
 
-    return Promise.all(requests)
-        .then(responses => responses.map(x => JSON.parse(x.body)))
-}
+app.post('/annotate', async (req, res) => {
+    controller.annotate()
+        .then(r => res.send(r))
+})
 
-    app.get('/ping', (req, res) => {
-        res.send('pong');
-    })
-
-    app.post('/annotate', (req, res) => {
-        annotate()
-            .then(resources => res.json({
-                Resources: resources
-            }))
-    });
-
-    const port = 4000
-    app.listen(port, () => {
-        console.log(`Server is listening on port ${port}`);
-    });
+const port = 4000
+app.listen(port, () => {
+    console.log(`Server is listening on port ${port}`);
+});

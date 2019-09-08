@@ -11,6 +11,10 @@ const data = [
     {
         name: 'fox',
         url: 'http://localhost:8080/annotate'
+    },
+    {
+        name: 'mock',
+        url: 'http://localhost:4000/slow_mock'
     }
 ]
 
