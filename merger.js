@@ -1,86 +1,3 @@
-const TEXT = 'O Rio de Janeiro tem araras'
-const ANNOTATIONS = [
-	  {
-		    'name': 'dbpedia',
-		    'resources': [
-			      {
-				        'offset': 2,
-				        'size': 3,
-				        'uri': 'rio'
-			      },
-			      {
-				        'offset': 9,
-				        'size': 7,
-				        'uri': 'janeiro'
-			      },
-			      {
-				        'offset': 21,
-				        'size': 5,
-				        'uri': 'arara'
-			      }
-		    ]
-	  },
-	  {
-		    'name': 'fox',
-		    'resources': [
-			      {
-				        'offset': 9,
-				        'size': 15,
-				        'uri': 'rio_de_janeiro'
-			      },
-			      {
-				        'offset': 21,
-				        'size': 6,
-				        'uri': 'arara'
-			      }
-		    ]
-	  },
-	  {
-		    'name': 'fox2',
-		    'resources': [
-			      {
-				        'offset': 9,
-				        'size': 15,
-				        'uri': 'rio_de_janeiro'
-			      },
-			      {
-				        'offset': 21,
-				        'size': 6,
-				        'uri': 'arara'
-			      }
-		    ]
-	  },
-	  {
-		    'name': 'tagme',
-		    'resources': [
-			      {
-				        'offset': 9,
-				        'size': 15,
-				        'uri': 'rio_de_janeiro'
-			      }
-		    ]
-	  },
-	  {
-		    'name': 'troll',
-		    'resources': [
-			      {
-				        'offset': 2,
-				        'size': 3,
-				        'uri': 'rio'
-			      },
-			      {
-				        'offset': 9,
-				        'size': 7,
-				        'uri': 'luke_skywalker'
-			      },
-			      {
-				        'offset': 21,
-				        'size': 5,
-				        'uri': 'cars_the_movie'
-			      }
-		    ]
-	  },
-]
 
 function merge_spottings(services_res){
     if (services_res.size == 0)
@@ -88,10 +5,12 @@ function merge_spottings(services_res){
     // const ann_candidates = []
     const spottings = services_res
           .flatMap(serv => serv.resources
-                   .map(spot => ({
-                       ...spot,
+                   .map(spot => {
+                       return {
+                           ...spot,
+                           weight: serv.weight || 1
+                       }
                    })
-                       )
                   )
           .reduce((acc, curr) => {
               const match = acc.reverse().find(spot => Math.abs(spot.offset - curr.offset) <= 2)
@@ -102,7 +21,7 @@ function merge_spottings(services_res){
                           {
                               uri: curr.uri,
                               size: curr.size,
-                              count: curr.weight || 1
+                              count: curr.weight
                           }
                       ]
                   })
@@ -112,7 +31,7 @@ function merge_spottings(services_res){
               console.log('join ', curr)
               cand_match = match.candidates.find(c => c.uri == curr.uri)
               if(cand_match)
-                  cand_match.count += (curr.weight || 1)
+                  cand_match.count += curr.weight
               else
                   match.candidates.push({
                       uri: curr.uri,

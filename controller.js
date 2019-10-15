@@ -1,9 +1,6 @@
-const util = require('util')
-const request = require('request')
-
 const services = require('./services')
-const request_ = util.promisify(request)
 
+const {merge_spottings, sample_data} = require('./merger.js')
 
 REQ_TIMEOUT = 5000
 
@@ -16,44 +13,52 @@ Promise.timeout = function(promise, timeout){
     ])
 }
 
-function do_requests(){
+function do_requests(text){
 
     const service_list = services.get_addresses()
 
     const requests = service_list.map(
         (service) => {
-            const options = {
-                method: 'POST',
-                url: service.url,
-                headers: {
-                    Accept: 'application/json'
-                },
-                form: {
-                    text: 'O rato roeu a roupa do rei de Roma'
-                }
-            }
-
             return {
                 name: service.name,
-                request: Promise.timeout(request_(options), REQ_TIMEOUT)
+                weight: service.weight,
+                request: Promise.timeout(
+                    service.connector.do_request({
+                        url: service.url,
+                        text: text
+                    }), REQ_TIMEOUT)
             }
         }
     )
-
     return requests
 }
 
-module.exports.annotate = async function() {
-    const pending_requests = do_requests()
+module.exports.annotate = async function(text) {
+    console.log(`--> Annotating "${text}"`)
+    const pending_requests = do_requests(text)
+    let finished_requests = []
+
     for (p of pending_requests){
         try {
-            const result = await p.request
-            const annotation = JSON.parse(result.body)
+            const response = await p.request
+            if(response.error)
+                throw new Error(response.error)
+            console.log(`--> ${p.name} recognized ${JSON.stringify(response.resources)}`)
+            finished_requests.push({
+                ...p,
+                resources: response.resources,
+            })
         } catch (e){
-            console.log(`${p.name} failed`)
+            console.log(`--> service ${p.name} failed`)
+            console.error(e)
         }
     }
+
+    const final_results = merge_spottings(finished_requests)
+
+    console.log(`--> Final Response is "${JSON.stringify(final_results)}"`)
+
     return Promise.resolve({
-        data: []
+        data: final_results
     })
 }
