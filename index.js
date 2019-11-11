@@ -1,7 +1,5 @@
 const express = require('express')
 const bodyParser = require('body-parser')
-const rdf = require('rdf')
-const rdfenv = require('rdf').environment
 
 const controller = require('./controller.js')
 const controller_nif = require('./controller_nif.js')
@@ -28,12 +26,11 @@ app.post('/annotate', bodyParser.json(), async (req, res) => {
 })
 
 app.post('/annotate-nif', bodyParser.text(), async (req, res) => {
-    const parse = rdf.TurtleParser.parse(req.body, 'http://example.com/')
-    const parsed = nif_parser.nif_to_object(parse.graph.toArray())
+    const parsed = nif_parser.string_to_object(req.body)
     // controller.annotate(req.body.text)
     //     .then(r => res.send(r))
     //     .catch(r => res.send(r))
-    res.send(JSON.stringify(parsed))
+    res.json(parsed)
 })
 
 const port = 4000

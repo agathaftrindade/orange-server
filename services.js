@@ -4,8 +4,8 @@ const MockConnector = require('./connectors/mock-connector.js')
 const data = [
     {
         name: 'spotlight-en',
-        url: 'http://localhost:8080',
-        // url: 'https://api.dbpedia-spotlight.org/pt',
+        // url: 'http://localhost:8080',
+        url: 'https://api.dbpedia-spotlight.org/en',
         weight: 2,
         connector: new SpotlightConnector()
     },

@@ -1,12 +1,55 @@
+const rdf = require('rdf')
+const rdfenv = require('rdf').environment
+
+// function _get_profile(){
+//     const profile = rdf.environment.createProfile();
+//     profile.setDefaultPrefix('http://example.com/');
+
+//     profile.setPrefix('rdf', 'http://www.w3.org/1999/02/22-rdf-syntax-ns');
+//     profile.setPrefix('rdfs', 'http://www.w3.org/2000/01/rdf-schema');
+//     profile.setPrefix('xsd', 'http://www.w3.org/2001/XMLSchema');
+//     profile.setPrefix('nif', 'http://persistence.uni-leipzig.org/nlp2rdf/ontologies/nif-core#');
+//     profile.setPrefix('itsrdf', 'http://www.w3.org/2005/11/its/rdf');
+
+//     return profile
+// }
+
+function _get_rdf_fields(){
+    const NIF_P = 'http://persistence.uni-leipzig.org/nlp2rdf/ontologies/nif-core#'
+    const ITSRDF_P = 'http://www.w3.org/2005/11/its/rdf#'
+    const d = {
+        text: `${NIF_P}isString`,
+        offset: `${NIF_P}beginIndex`,
+        endIndex: `${NIF_P}endIndex`,
+        uri: `${ITSRDF_P}taIdentRef`,
+    }
+    Object.entries(d).forEach(([k, v]) => {
+        d[v] = k
+    })
+    return d
+}
+
+function string_to_object(s){
+    const parsed = rdf.TurtleParser.parse(s, 'http://example.com/')
+    return nif_to_object(parsed.graph.toArray())
+}
+
 function nif_to_object(triples){
     const subjs = {}
-    triples.map(t => t.toString().split('> <')).forEach(
+    console.log(triples)
+    triples
+        .map(t => [t.subject.nominalValue, t.predicate.nominalValue, t.object.nominalValue])
+        .forEach(
         ([subj, pred, obj]) => {
             if(!subjs[subj])
                 subjs[subj] = {}
+
+            // console.log(pred)
+            // console.log()
+            pred = _get_rdf_fields()[pred] || pred
+
             subjs[subj][pred] = obj
         })
-    console.log(subjs)
     const l = Object.entries(subjs)
         .map(([k, val]) => {
             return {
@@ -18,5 +61,6 @@ function nif_to_object(triples){
 }
 
 module.exports = {
+    string_to_object,
     nif_to_object
 }
