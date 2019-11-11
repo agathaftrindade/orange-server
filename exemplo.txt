@@ -1,0 +1,571 @@
+# Input body
+{
+	"text": "Over the 60-minute town hall, Ernst took three questions related to the impeachment inquiry, suggesting Iowa voters are paying attention to the controversial investigation that is dominating the headlines and throwing the 2020 election into a tailspin. As Ernst looks ahead to her own 2020 re-election race, her allies and opponents alike are trying to figure out whether impeachment will help or hurt Ernst’s efforts to secure a second term. The answer to that question is currently the great unknown of American politics and control of the Senate could be at stake if impeachment puts Republicans like Ernst at risk."
+}
+
+# Response body
+
+{
+    "data": [
+        {
+            "offset": "19",
+            "size": 9,
+            "uri": "http://dbpedia.org/resource/Town_hall_meeting",
+            "_candidates": [
+                {
+                    "uri": "http://dbpedia.org/resource/Town_hall_meeting",
+                    "size": 9,
+                    "count": 2,
+                    "voted_by": [
+                        "spotlight-en",
+                        "tagme"
+                    ]
+                }
+            ]
+        },
+        {
+            "offset": 30,
+            "size": 5,
+            "uri": "http://dbpedia.org/resource/Joni_Ernst",
+            "_candidates": [
+                {
+                    "uri": "http://dbpedia.org/resource/Joni_Ernst",
+                    "size": 5,
+                    "count": 1,
+                    "voted_by": [
+                        "tagme"
+                    ]
+                }
+            ]
+        },
+        {
+            "offset": 41,
+            "size": 15,
+            "uri": "http://dbpedia.org/resource/The_Three_Questions",
+            "_candidates": [
+                {
+                    "uri": "http://dbpedia.org/resource/The_Three_Questions",
+                    "size": 15,
+                    "count": 1,
+                    "voted_by": [
+                        "tagme"
+                    ]
+                }
+            ]
+        },
+        {
+            "offset": "72",
+            "size": 11,
+            "uri": "http://dbpedia.org/resource/Impeachment",
+            "_candidates": [
+                {
+                    "uri": "http://dbpedia.org/resource/Impeachment",
+                    "size": 11,
+                    "count": 2,
+                    "voted_by": [
+                        "spotlight-en",
+                        "tagme"
+                    ]
+                }
+            ]
+        },
+        {
+            "offset": 84,
+            "size": 7,
+            "uri": "http://dbpedia.org/resource/Inquiry",
+            "_candidates": [
+                {
+                    "uri": "http://dbpedia.org/resource/Inquiry",
+                    "size": 7,
+                    "count": 1,
+                    "voted_by": [
+                        "tagme"
+                    ]
+                }
+            ]
+        },
+        {
+            "offset": "104",
+            "size": 4,
+            "uri": "http://dbpedia.org/resource/Iowa",
+            "_candidates": [
+                {
+                    "uri": "http://dbpedia.org/resource/Iowa",
+                    "size": 4,
+                    "count": 2,
+                    "voted_by": [
+                        "spotlight-en",
+                        "tagme"
+                    ]
+                }
+            ]
+        },
+        {
+            "offset": 109,
+            "size": 6,
+            "uri": "http://dbpedia.org/resource/Voting",
+            "_candidates": [
+                {
+                    "uri": "http://dbpedia.org/resource/Voting",
+                    "size": 6,
+                    "count": 1,
+                    "voted_by": [
+                        "tagme"
+                    ]
+                }
+            ]
+        },
+        {
+            "offset": 127,
+            "size": 9,
+            "uri": "http://dbpedia.org/resource/Attention",
+            "_candidates": [
+                {
+                    "uri": "http://dbpedia.org/resource/Attention",
+                    "size": 9,
+                    "count": 1,
+                    "voted_by": [
+                        "tagme"
+                    ]
+                }
+            ]
+        },
+        {
+            "offset": 144,
+            "size": 13,
+            "uri": "http://dbpedia.org/resource/Controversy",
+            "_candidates": [
+                {
+                    "uri": "http://dbpedia.org/resource/Controversy",
+                    "size": 13,
+                    "count": 1,
+                    "voted_by": [
+                        "tagme"
+                    ]
+                }
+            ]
+        },
+        {
+            "offset": 158,
+            "size": 13,
+            "uri": "http://dbpedia.org/resource/Criminal_procedure",
+            "_candidates": [
+                {
+                    "uri": "http://dbpedia.org/resource/Criminal_procedure",
+                    "size": 13,
+                    "count": 1,
+                    "voted_by": [
+                        "tagme"
+                    ]
+                }
+            ]
+        },
+        {
+            "offset": 195,
+            "size": 9,
+            "uri": "http://dbpedia.org/resource/Syntactic_ambiguity",
+            "_candidates": [
+                {
+                    "uri": "http://dbpedia.org/resource/Syntactic_ambiguity",
+                    "size": 9,
+                    "count": 1,
+                    "voted_by": [
+                        "tagme"
+                    ]
+                }
+            ]
+        },
+        {
+            "offset": 209,
+            "size": 8,
+            "uri": "http://dbpedia.org/resource/Match_fixing",
+            "_candidates": [
+                {
+                    "uri": "http://dbpedia.org/resource/Match_fixing",
+                    "size": 8,
+                    "count": 1,
+                    "voted_by": [
+                        "tagme"
+                    ]
+                }
+            ]
+        },
+        {
+            "offset": 222,
+            "size": 13,
+            "uri": "http://dbpedia.org/resource/United_States_presidential_election,_2020",
+            "_candidates": [
+                {
+                    "uri": "http://dbpedia.org/resource/United_States_presidential_election,_2020",
+                    "size": 13,
+                    "count": 1,
+                    "voted_by": [
+                        "tagme"
+                    ]
+                }
+            ]
+        },
+        {
+            "offset": 243,
+            "size": 8,
+            "uri": "http://dbpedia.org/resource/Spin_(aerodynamics)",
+            "_candidates": [
+                {
+                    "uri": "http://dbpedia.org/resource/Spin_(aerodynamics)",
+                    "size": 8,
+                    "count": 1,
+                    "voted_by": [
+                        "tagme"
+                    ]
+                }
+            ]
+        },
+        {
+            "offset": 290,
+            "size": 11,
+            "uri": "http://dbpedia.org/resource/United_States_presidential_election,_2004",
+            "_candidates": [
+                {
+                    "uri": "http://dbpedia.org/resource/United_States_presidential_election,_2004",
+                    "size": 11,
+                    "count": 1,
+                    "voted_by": [
+                        "tagme"
+                    ]
+                }
+            ]
+        },
+        {
+            "offset": 302,
+            "size": 4,
+            "uri": "http://dbpedia.org/resource/Race_(human_categorization)",
+            "_candidates": [
+                {
+                    "uri": "http://dbpedia.org/resource/Race_(human_categorization)",
+                    "size": 4,
+                    "count": 1,
+                    "voted_by": [
+                        "tagme"
+                    ]
+                }
+            ]
+        },
+        {
+            "offset": 312,
+            "size": 6,
+            "uri": "http://dbpedia.org/resource/Allies_of_World_War_II",
+            "_candidates": [
+                {
+                    "uri": "http://dbpedia.org/resource/Allies_of_World_War_II",
+                    "size": 6,
+                    "count": 1,
+                    "voted_by": [
+                        "tagme"
+                    ]
+                }
+            ]
+        },
+        {
+            "offset": 353,
+            "size": 6,
+            "uri": "http://dbpedia.org/resource/Figure_of_speech",
+            "_candidates": [
+                {
+                    "uri": "http://dbpedia.org/resource/Figure_of_speech",
+                    "size": 6,
+                    "count": 1,
+                    "voted_by": [
+                        "tagme"
+                    ]
+                }
+            ]
+        },
+        {
+            "offset": 360,
+            "size": 3,
+            "uri": "http://dbpedia.org/resource/Coming_out",
+            "_candidates": [
+                {
+                    "uri": "http://dbpedia.org/resource/Coming_out",
+                    "size": 3,
+                    "count": 1,
+                    "voted_by": [
+                        "tagme"
+                    ]
+                }
+            ]
+        },
+        {
+            "offset": "372",
+            "size": 11,
+            "uri": "http://dbpedia.org/resource/Impeachment",
+            "_candidates": [
+                {
+                    "uri": "http://dbpedia.org/resource/Impeachment",
+                    "size": 11,
+                    "count": 1,
+                    "voted_by": [
+                        "spotlight-en"
+                    ]
+                }
+            ]
+        },
+        {
+            "offset": 384,
+            "size": 4,
+            "uri": "http://dbpedia.org/resource/Will_and_testament",
+            "_candidates": [
+                {
+                    "uri": "http://dbpedia.org/resource/Will_and_testament",
+                    "size": 4,
+                    "count": 1,
+                    "voted_by": [
+                        "tagme"
+                    ]
+                }
+            ]
+        },
+        {
+            "offset": 389,
+            "size": 4,
+            "uri": "http://dbpedia.org/resource/The_Help_(film)",
+            "_candidates": [
+                {
+                    "uri": "http://dbpedia.org/resource/The_Help_(film)",
+                    "size": 4,
+                    "count": 1,
+                    "voted_by": [
+                        "tagme"
+                    ]
+                }
+            ]
+        },
+        {
+            "offset": 397,
+            "size": 4,
+            "uri": "http://dbpedia.org/resource/Suffering",
+            "_candidates": [
+                {
+                    "uri": "http://dbpedia.org/resource/Suffering",
+                    "size": 4,
+                    "count": 1,
+                    "voted_by": [
+                        "tagme"
+                    ]
+                }
+            ]
+        },
+        {
+            "offset": 430,
+            "size": 11,
+            "uri": "http://dbpedia.org/resource/George_W._Bush's_second_term_as_President_of_the_United_States",
+            "_candidates": [
+                {
+                    "uri": "http://dbpedia.org/resource/George_W._Bush's_second_term_as_President_of_the_United_States",
+                    "size": 11,
+                    "count": 1
+                },
+                {
+                    "uri": "http://dbpedia.org/resource/United_States_Court_of_Appeals_for_the_Second_Circuit",
+                    "size": 6,
+                    "count": 1,
+                    "voted_by": [
+                        "tagme"
+                    ]
+                }
+            ]
+        },
+        {
+            "offset": "443",
+            "size": 10,
+            "uri": "http://dbpedia.org/resource/The_Answer_(band)",
+            "_candidates": [
+                {
+                    "uri": "http://dbpedia.org/resource/The_Answer_(band)",
+                    "size": 10,
+                    "count": 1,
+                    "voted_by": [
+                        "spotlight-en"
+                    ]
+                }
+            ]
+        },
+        {
+            "offset": 447,
+            "size": 6,
+            "uri": "http://dbpedia.org/resource/Answer",
+            "_candidates": [
+                {
+                    "uri": "http://dbpedia.org/resource/Answer",
+                    "size": 6,
+                    "count": 1,
+                    "voted_by": [
+                        "tagme"
+                    ]
+                }
+            ]
+        },
+        {
+            "offset": 488,
+            "size": 13,
+            "uri": "http://dbpedia.org/resource/The_Great_Unknown_(Rob_Thomas_album)",
+            "_candidates": [
+                {
+                    "uri": "http://dbpedia.org/resource/The_Great_Unknown_(Rob_Thomas_album)",
+                    "size": 13,
+                    "count": 1,
+                    "voted_by": [
+                        "tagme"
+                    ]
+                }
+            ]
+        },
+        {
+            "offset": "505",
+            "size": 17,
+            "uri": "http://dbpedia.org/resource/Politics_of_the_United_States",
+            "_candidates": [
+                {
+                    "uri": "http://dbpedia.org/resource/Politics_of_the_United_States",
+                    "size": 17,
+                    "count": 2,
+                    "voted_by": [
+                        "spotlight-en",
+                        "tagme"
+                    ]
+                },
+                {
+                    "uri": "http://dbpedia.org/resource/Americans",
+                    "size": 8,
+                    "count": 1
+                }
+            ]
+        },
+        {
+            "offset": 527,
+            "size": 7,
+            "uri": "http://dbpedia.org/resource/Social_control",
+            "_candidates": [
+                {
+                    "uri": "http://dbpedia.org/resource/Social_control",
+                    "size": 7,
+                    "count": 1,
+                    "voted_by": [
+                        "tagme"
+                    ]
+                }
+            ]
+        },
+        {
+            "offset": "542",
+            "size": 6,
+            "uri": "http://dbpedia.org/resource/United_States_Senate",
+            "_candidates": [
+                {
+                    "uri": "http://dbpedia.org/resource/United_States_Senate",
+                    "size": 6,
+                    "count": 2,
+                    "voted_by": [
+                        "spotlight-en",
+                        "tagme"
+                    ]
+                }
+            ]
+        },
+        {
+            "offset": 561,
+            "size": 5,
+            "uri": "http://dbpedia.org/resource/Share_(finance)",
+            "_candidates": [
+                {
+                    "uri": "http://dbpedia.org/resource/Share_(finance)",
+                    "size": 5,
+                    "count": 1,
+                    "voted_by": [
+                        "tagme"
+                    ]
+                }
+            ]
+        },
+        {
+            "offset": 567,
+            "size": 2,
+            "uri": "http://dbpedia.org/resource/If....",
+            "_candidates": [
+                {
+                    "uri": "http://dbpedia.org/resource/If....",
+                    "size": 2,
+                    "count": 1,
+                    "voted_by": [
+                        "tagme"
+                    ]
+                }
+            ]
+        },
+        {
+            "offset": "570",
+            "size": 11,
+            "uri": "http://dbpedia.org/resource/Impeachment",
+            "_candidates": [
+                {
+                    "uri": "http://dbpedia.org/resource/Impeachment",
+                    "size": 11,
+                    "count": 1,
+                    "voted_by": [
+                        "spotlight-en"
+                    ]
+                }
+            ]
+        },
+        {
+            "offset": "587",
+            "size": 11,
+            "uri": "http://dbpedia.org/resource/History_of_the_United_States_Republican_Party",
+            "_candidates": [
+                {
+                    "uri": "http://dbpedia.org/resource/History_of_the_United_States_Republican_Party",
+                    "size": 11,
+                    "count": 1,
+                    "voted_by": [
+                        "spotlight-en"
+                    ]
+                },
+                {
+                    "uri": "http://dbpedia.org/resource/Republican_Party_(United_States)",
+                    "size": 11,
+                    "count": 1
+                }
+            ]
+        },
+        {
+            "offset": 610,
+            "size": 7,
+            "uri": "http://dbpedia.org/resource/At-risk_students",
+            "_candidates": [
+                {
+                    "uri": "http://dbpedia.org/resource/At-risk_students",
+                    "size": 7,
+                    "count": 1,
+                    "voted_by": [
+                        "tagme"
+                    ]
+                }
+            ]
+        },
+        {
+            "offset": 613,
+            "size": 4,
+            "uri": "http://dbpedia.org/resource/Risk",
+            "_candidates": [
+                {
+                    "uri": "http://dbpedia.org/resource/Risk",
+                    "size": 4,
+                    "count": 1,
+                    "voted_by": [
+                        "tagme"
+                    ]
+                }
+            ]
+        }
+    ]
+}
