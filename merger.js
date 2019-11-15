@@ -1,5 +1,5 @@
 
-function merge_spottings(services_res){
+function merge_spottings(services_res, config){
     if (services_res.size == 0)
         return 0
     // const ann_candidates = []
@@ -30,9 +30,8 @@ function merge_spottings(services_res){
                   return acc
               }
 
-              console.log('join ', curr)
+              // console.log('join ', curr)
               cand_match = match.candidates.find(c => c.uri == curr.uri)
-		console.log(curr.weight)
               if(cand_match){
                   cand_match.count += curr.weight
 		              cand_match.voted_by.push(curr.name)
@@ -46,6 +45,13 @@ function merge_spottings(services_res){
 
               return acc
           }, [])
+          .filter(spot => { // Apply filter policies
+              if(config.filter_policy == 'REMOVE_SINGLE_SPOTS'){
+                  const is_single = spot.candidates.length == 1 && spot.candidates[0].voted_by.length == 1
+                  return !is_single
+              }
+              return true
+          })
           .map(spot => {
               const chosen_one = spot.candidates
                     .sort((c1, c2) => {

@@ -1,8 +1,7 @@
-const services = require('./services')
+const config_ = require('./config')
 
 const {merge_spottings, sample_data} = require('./merger.js')
 
-REQ_TIMEOUT = 5000
 
 Promise.timeout = function(promise, timeout){
     return Promise.race([
@@ -13,9 +12,9 @@ Promise.timeout = function(promise, timeout){
     ])
 }
 
-function do_requests(text){
+function do_requests(text, config){
 
-    const service_list = services.get_addresses()
+    const service_list = config.services
 
     const requests = service_list.map(
         (service) => {
@@ -26,39 +25,51 @@ function do_requests(text){
                     service.connector.do_request({
                         url: service.url,
                         text: text
-                    }), REQ_TIMEOUT)
+                    }), config.timeout)
             }
         }
     )
     return requests
 }
 
-module.exports.annotate = async function(text) {
-    console.log(`--> Annotating "${text}"`)
-    const pending_requests = do_requests(text)
-    let finished_requests = []
+module.exports.annotate = async function(text, params) {
+    try{
+        console.log(`--> Annotating "${text}"`)
 
-    for (p of pending_requests){
-        try {
-            const response = await p.request
-            if(response.error)
-                throw new Error(response.error)
-            console.log(`--> ${p.name} recognized ${JSON.stringify(response.resources)}`)
-            finished_requests.push({
-                ...p,
-                resources: response.resources,
-            })
-        } catch (e){
-            console.log(`--> service ${p.name} failed`)
-            console.error(e)
+        const config = config_.get()
+
+        config.filter_policy = config.filter_policy || params.filter_policy
+        console.log(config.filter_policy)
+
+        const pending_requests = do_requests(text, config)
+        let finished_requests = []
+
+
+        for (p of pending_requests){
+            try {
+                const response = await p.request
+                if(response.error)
+                    throw new Error(response.error)
+                console.log(`--> ${p.name} recognized ${JSON.stringify(response.resources)}`)
+                finished_requests.push({
+                    ...p,
+                    resources: response.resources,
+                })
+            } catch (e){
+                console.log(`--> service ${p.name} failed`)
+                console.error(e)
+            }
         }
+
+        const final_results = merge_spottings(finished_requests, config)
+
+        console.log(`--> Final Response is "${JSON.stringify(final_results)}"`)
+
+        return Promise.resolve({
+            data: final_results
+        })
+    }catch(e){
+        console.error(e)
+        return Promise.reject(e)
     }
-
-    const final_results = merge_spottings(finished_requests)
-
-    console.log(`--> Final Response is "${JSON.stringify(final_results)}"`)
-
-    return Promise.resolve({
-        data: final_results
-    })
 }

@@ -15,6 +15,7 @@ const rdfenv = require('rdf').environment
 // }
 
 const PREFIXES = {
+    "http" : "http",
     "schema" : "http://schema.org/",
     "xsd" : "http://www.w3.org/2001/XMLSchema#",
     "its" : "http://www.w3.org/2005/11/its/rdf#",
