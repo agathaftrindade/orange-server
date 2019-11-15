@@ -4,7 +4,8 @@ const request = require('request')
 const request_ = util.promisify(request)
 
 module.exports = class TagmeConnector{
-    constructor(){
+    constructor(params){
+        this.token = params.token
     }
     do_request({url, text}){
         // return Promise.reject()
@@ -14,8 +15,8 @@ module.exports = class TagmeConnector{
                 Accept: 'application/json'
             },
             form: {
-                'gcube-token': '',
-		text
+                'gcube-token': this.token,
+		            text
             }
         }
         return new Promise((resolve, reject) => {
@@ -31,12 +32,14 @@ module.exports = class TagmeConnector{
             .then(res => res.body)
             .then(body => JSON.parse(body))
             .then(res => ({
-                resources: res.annotations.map(
-                    r => ({
-                        uri: `http://dbpedia.org/resource/${r['title'].replace(/ /g, '_')}`,
-                        offset: r['start'],
-                        size: r['end'] - r['start']
-                    })
+                resources: res.annotations
+                    .filter(r => r.rho > 0.25)
+                    .map(
+                        r => ({
+                            uri: `http://dbpedia.org/resource/${r['title'].replace(/ /g, '_')}`,
+                            offset: r['start'],
+                            size: r['end'] - r['start']
+                        })
                 )
             }))
             .catch(e => {

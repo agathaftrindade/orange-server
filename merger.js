@@ -23,7 +23,7 @@ function merge_spottings(services_res){
                               uri: curr.uri,
                               size: curr.size,
                               count: curr.weight,
-				voted_by: [curr.name]
+				                      voted_by: [curr.name]
                           }
                       ]
                   })
@@ -35,13 +35,13 @@ function merge_spottings(services_res){
 		console.log(curr.weight)
               if(cand_match){
                   cand_match.count += curr.weight
-		      cand_match.voted_by.push(curr.name)
-		}
-              else
+		              cand_match.voted_by.push(curr.name)
+		          }else
                   match.candidates.push({
                       uri: curr.uri,
                       size: curr.size,
-                      count: curr.weight || 1
+                      count: curr.weight || 1,
+				              voted_by: [curr.name]
                   })
 
               return acc

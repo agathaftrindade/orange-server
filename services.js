@@ -1,5 +1,6 @@
 const SpotlightConnector = require('./connectors/spotlight-connector.js')
 const TagmeConnector = require('./connectors/tagme-connector.js')
+const FoxConnector = require('./connectors/fox-connector.js')
 const MockConnector = require('./connectors/mock-connector.js')
 
 const data = [
@@ -14,13 +15,15 @@ const data = [
         name: 'tagme',
         url: 'https://tagme.d4science.org/tagme',
         weight: 1,
-        connector: new TagmeConnector()
+        connector: new TagmeConnector({
+            token: ''
+        })
     },
     {
         name: 'fox',
-        url: 'http://localhost:4000/slow_mock',
+        url: '',
         weight: 1,
-        connector: new SpotlightConnector()
+        connector: new FoxConnector()
     },
     // {
     //     name: 'mock',

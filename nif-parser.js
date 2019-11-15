@@ -14,6 +14,22 @@ const rdfenv = require('rdf').environment
 //     return profile
 // }
 
+const PREFIXES = {
+    "schema" : "http://schema.org/",
+    "xsd" : "http://www.w3.org/2001/XMLSchema#",
+    "its" : "http://www.w3.org/2005/11/its/rdf#",
+    "nif" : "http://persistence.uni-leipzig.org/nlp2rdf/ontologies/nif-core#",
+    "rdfs" : "http://www.w3.org/2000/01/rdf-schema#",
+    "foxo" : "http://ns.aksw.org/fox/ontology#",
+    "dbo" : "http://dbpedia.org/ontology/",
+    "oa" : "http://www.w3.org/ns/oa#",
+    "foxr" : "http://ns.aksw.org/fox/resource#",
+    "dbr" : "http://dbpedia.org/resource/",
+    "rdf" : "http://www.w3.org/1999/02/22-rdf-syntax-ns#",
+    "prov" : "http://www.w3.org/ns/prov#",
+    "foaf" : "http://xmlns.com/foaf/0.1/"
+}
+
 function _get_rdf_fields(){
     const NIF_P = 'http://persistence.uni-leipzig.org/nlp2rdf/ontologies/nif-core#'
     const ITSRDF_P = 'http://www.w3.org/2005/11/its/rdf#'
@@ -61,6 +77,7 @@ function nif_to_object(triples){
 }
 
 module.exports = {
+    PREFIXES,
     string_to_object,
     nif_to_object
 }
