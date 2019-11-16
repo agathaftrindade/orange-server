@@ -5,16 +5,21 @@ const MockConnector = require('./connectors/mock-connector.js')
 
 const config = () => {
       return {
-          // filter_policy: 'REMOVE_SINGLE_SPOTS', // NONE | REMOVE_SINGLE_SPOTS
-
+          listen_port: 4040,
           timeout: 10000,
           services: [
               {
                   name: 'spotlight-en',
-                  // url: 'http://localhost:8080',
-                  url: 'https://api.dbpedia-spotlight.org/en',
+                  // url: 'https://api.dbpedia-spotlight.org/en',
+                  url: 'http://192.168.1.114:8080',
                   weight: 1,
                   connector: new SpotlightConnector()
+              },
+              {
+                  name: 'fox',
+                  url: '',
+                  weight: 1,
+                  connector: new FoxConnector()
               },
               {
                   name: 'tagme',
@@ -23,13 +28,7 @@ const config = () => {
                   connector: new TagmeConnector({
                       token: ''
                   })
-              },
-              {
-                  name: 'fox',
-                  url: '',
-                  weight: 1,
-                  connector: new FoxConnector()
-              },
+              }
           ]
       }
 }
