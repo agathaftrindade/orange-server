@@ -33,7 +33,7 @@ module.exports = class SpotlightConnector{
                 resources: res.Resources.map(
                     r => ({
                         uri: r['@URI'],
-                        offset: r['@offset'],
+                        offset: parseInt(r['@offset']),
                         size: r['@surfaceForm'].length
                     })
                 )

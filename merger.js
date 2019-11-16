@@ -8,7 +8,7 @@ function merge_spottings(services_res, config){
                    .map(spot => {
                        return {
                            ...spot,
-			   name: serv.name,
+			                     name: serv.name,
                            weight: serv.weight || 1
                        }
                    })

@@ -43,8 +43,8 @@ module.exports = class FoxConnector{
                             .replace( /(.*):/g,
                                       (v, m1) => PREFIXES[m1]
                         ),
-                        offset: r['beginIndex'],
-                        size: r['endIndex'] - r['beginIndex']
+                        offset: parseInt(r['beginIndex']),
+                        size: parseInt(r['endIndex']) - parseInt(r['beginIndex'])
                     })
                 )
             }))
