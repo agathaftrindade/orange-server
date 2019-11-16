@@ -6,6 +6,8 @@ const controller = require('./controller.js')
 
 const nif_parser = require('./nif-parser.js')
 
+const config = require('./config')
+
 const app = express();
 
 // app.use(bodyParser.json());
@@ -35,7 +37,7 @@ app.post('/annotate', bodyParser.json(), async (req, res) => {
 //     res.json(parsed)
 // })
 
-const port = 4000
+const port = config.get().listen_port
 app.listen(port, () => {
     console.log(`Server is listening on port ${port}`);
 });

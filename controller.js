@@ -48,8 +48,9 @@ module.exports.annotate = async function(text, params) {
         for (p of pending_requests){
             try {
                 const response = await p.request
-                if(response.error)
+                if(response.error){
                     throw new Error(response.error)
+                }
                 console.log(`--> ${p.name} recognized ${JSON.stringify(response.resources)}`)
                 finished_requests.push({
                     ...p,

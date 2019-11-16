@@ -36,7 +36,7 @@ module.exports = class FoxConnector{
         })
             .then(res => res.body)
             .then(res => ({
-                resources: res['@graph']
+                resources: (res['@graph'] || [])
                     .filter(node => node['@type'] === 'nif:Phrase')
                     .map(r => ({
                         uri: r['taIdentRef']

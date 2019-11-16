@@ -36,7 +36,7 @@ module.exports = class TagmeConnector{
                     .filter(r => r.rho > 0.25)
                     .map(
                         r => ({
-                            uri: `http://dbpedia.org/resource/${r['title'].replace(/ /g, '_')}`,
+                            uri: `http://dbpedia.org/resource/${encodeURIComponent(r['title'].replace(/ /g, '_'))}`,
                             offset: r['start'],
                             size: r['end'] - r['start']
                         })
